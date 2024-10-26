@@ -3,8 +3,10 @@ from pymongo import MongoClient
 from werkzeug.security import generate_password_hash, check_password_hash
 from bson.objectid import ObjectId
 import os
+from flask_cors import CORS
 
 app = Flask(__name__)
+CORS(app)
 
 URI = os.getenv("MONGO_URI")
 SECRET_KEY = os.getenv('SECRET_KEY')
