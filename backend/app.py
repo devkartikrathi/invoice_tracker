@@ -16,7 +16,7 @@ db = client['purchase_manager']
 @app.route('/register', methods=['POST'])
 def register():
   data = request.json
-  hashed_password = generate_password_hash(data['password'], method='sha256')
+  hashed_password = generate_password_hash(data['password'], method="scrypt")
   user = {
       "email": data['email'],
       "password": hashed_password
