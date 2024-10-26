@@ -6,14 +6,11 @@ import os
 
 app = Flask(__name__)
 
-# Load environment variables
 URI = os.getenv("MONGO_URI")
 SECRET_KEY = os.getenv('SECRET_KEY')
 
-# Configure MongoDB database
 DATABASE_NAME = "purchase_manager"
 
-# Lazy initialization of MongoDB client
 def get_db():
     if 'mongo_client' not in g:
         g.mongo_client = MongoClient(URI)
@@ -77,4 +74,4 @@ def delete_invoice(invoice_id):
     return jsonify({"message": "Invoice deleted successfully"}), 200
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run()
