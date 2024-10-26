@@ -8,8 +8,7 @@ app = Flask(__name__)
 
 # Load environment variables
 URI = os.getenv("MONGO_URI")
-SECRET_KEY = os.getenv('SECRET_KEY', 'your_secret_key')
-print(URI)
+SECRET_KEY = os.getenv('SECRET_KEY')
 # Initialize MongoDB client
 client = MongoClient(URI)
 db = client['purchase_manager']
