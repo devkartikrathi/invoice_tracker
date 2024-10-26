@@ -13,6 +13,11 @@ SECRET_KEY = os.getenv('SECRET_KEY')
 client = MongoClient(URI)
 db = client['purchase_manager']
 
+
+@app.route('/')
+def home():
+  return jsonify({"message": "Welcome to Purchase Manager"}), 200
+
 @app.route('/register', methods=['POST'])
 def register():
   data = request.json
