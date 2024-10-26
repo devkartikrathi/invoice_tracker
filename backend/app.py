@@ -7,11 +7,11 @@ import os
 app = Flask(__name__)
 
 # Load environment variables
-# MONGO_URI = os.getenv('MONGO_URI', 'mongodb://localhost:27017/')
+URI = os.getenv("MONGO_URI")
 SECRET_KEY = os.getenv('SECRET_KEY', 'your_secret_key')
-
+print(URI)
 # Initialize MongoDB client
-client = MongoClient(MONGO_URI)
+client = MongoClient(URI)
 db = client['purchase_manager']
 
 @app.route('/register', methods=['POST'])
@@ -61,4 +61,5 @@ def delete_invoice(invoice_id):
   return jsonify({"message": "Invoice deleted successfully"}), 200
 
 if __name__ == '__main__':
-  app.run(debug=True)
+#   app.run(debug=True)
+    app.run()
