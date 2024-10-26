@@ -1,5 +1,3 @@
----
-
 # **Purchase Manager**
 
 ### **A Cross-Platform App for Managing Bills and Warranty Invoices**
