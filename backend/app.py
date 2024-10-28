@@ -101,6 +101,7 @@ def login():
                 'email': user['email'],
                 'exp': datetime.now(timezone.utc) + timedelta(hours=24),
             },
+            # str(SECRET_KEY),
             SECRET_KEY,
         )
         return jsonify({
@@ -131,7 +132,7 @@ def analyze_receipt(current_user):
         6. Warranty period (if visible)
         7. Customer care number (if available)
 
-        Return the information in this exact JSON format as given below and if some fields are missing then leave them empty and return in the JSON only:
+        Return the information in this exact JSON format that I can directly attach in the response as it is i.e. no other text such as ```json```, as given below and if some fields are missing then leave them empty:
         {
             "product_name": "",
             "purchase_date": "",
